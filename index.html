@@ -337,12 +337,90 @@
   .vol-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent-dim), var(--accent)); }
   .vol-bar-fill.low { background: linear-gradient(90deg, #b06a1e, #ff9d3a); }
   .vol-legend { font-size: 11px; color: var(--muted); line-height: 1.5; padding-top: 12px; border-top: 1px solid var(--border); margin-top: 8px; }
+
+  /* --- Overgeslagen oefeningen --- */
+  .skip-btn { flex: 1; padding: 12px; background: var(--card-2); border: 1px solid rgba(255,82,82,0.28); border-radius: 14px; color: #ff5252; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; letter-spacing: 0.5px; }
+  .skip-btn:active { transform: scale(0.98); }
+  .modal-actions { display: flex; gap: 8px; margin-bottom: 10px; }
+  .modal-actions .swap-btn { margin-bottom: 0; flex: 1; }
+  .skipped-card { background: var(--card); border: 1px dashed var(--border); border-radius: 18px; padding: 14px 18px; margin-bottom: 16px; }
+  .skipped-head { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #ff5252; text-transform: uppercase; margin-bottom: 8px; }
+  .skip-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+  .skip-row:last-child { border-bottom: none; }
+  .skip-row-name { font-size: 12px; color: var(--muted-2); text-decoration: line-through; }
+  .skip-undo { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 5px 10px; font-size: 10px; color: var(--accent); font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; flex-shrink: 0; }
+
+  /* --- Arm-van-de-week banner --- */
+  .arm-banner { display: flex; align-items: center; gap: 14px; background: linear-gradient(135deg, rgba(200,241,53,0.10), rgba(200,241,53,0.02)); border: 1px solid rgba(200,241,53,0.28); border-radius: 18px; padding: 12px 16px; margin-bottom: 14px; }
+  .arm-banner-side { font-family: 'Bebas Neue', sans-serif; font-size: 30px; line-height: 1; letter-spacing: 2px; color: var(--accent); flex-shrink: 0; }
+  .arm-banner-lbl { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: var(--accent-dim); text-transform: uppercase; margin-bottom: 3px; }
+  .arm-banner-sub { font-size: 11px; color: var(--muted-2); line-height: 1.4; }
+  .ex-uni-tag { font-size: 9px; color: var(--accent); background: rgba(200,241,53,0.10); border: 1px solid rgba(200,241,53,0.22); padding: 2px 6px; border-radius: 4px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; }
+
+  /* --- Backup-herinnering --- */
+  .backup-warn { background: rgba(255,157,58,0.07); border: 1px solid rgba(255,157,58,0.30); border-radius: 18px; padding: 14px 16px; margin-bottom: 14px; }
+  .backup-warn-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .backup-warn-title { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #ff9d3a; text-transform: uppercase; }
+  .backup-x { background: none; border: none; color: var(--muted); font-size: 14px; cursor: pointer; padding: 0 4px; font-family: 'DM Sans', sans-serif; }
+  .backup-warn-text { font-size: 12px; color: var(--muted-2); line-height: 1.5; margin-bottom: 10px; }
+  .backup-warn-text b { color: var(--text); font-weight: 700; }
+  .backup-warn-btn { width: 100%; padding: 11px; background: rgba(255,157,58,0.14); border: 1px solid rgba(255,157,58,0.35); border-radius: 12px; color: #ff9d3a; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; letter-spacing: 0.4px; }
+
+  /* --- Vuurwerk --- */
+  .fw-overlay { position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 500; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.62); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+  .fw-overlay.show { display: flex; }
+  .fw-overlay canvas { position: absolute; inset: 0; }
+  .fw-inner { position: relative; text-align: center; padding: 0 22px; pointer-events: none; }
+  .fw-text { font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 0.92; letter-spacing: 2px; color: var(--accent); text-shadow: 0 0 30px rgba(200,241,53,0.6), 0 0 60px rgba(200,241,53,0.25); animation: fwPop 0.5s cubic-bezier(0.2,1.6,0.4,1); }
+  .fw-sub { margin-top: 12px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: #fff; text-transform: uppercase; opacity: 0.85; animation: fwFade 0.9s ease 0.25s both; }
+  .fw-tap { margin-top: 26px; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.45); text-transform: uppercase; animation: fwFade 0.9s ease 0.9s both; }
+  @keyframes fwPop { from { transform: scale(0.45); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+  @keyframes fwFade { from { opacity: 0 } to { opacity: 1 } }
+
+  /* --- Progress: uitklapbaar per spiergroep --- */
+  .pg-group { background: var(--card); border: 1px solid var(--border); border-radius: 18px; margin-bottom: 10px; overflow: hidden; }
+  .pg-group-head { display: flex; align-items: center; gap: 10px; padding: 15px 18px; cursor: pointer; }
+  .pg-group-head:active { background: var(--card-2); }
+  .pg-group-title { font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+  .pg-group-meta { font-size: 10px; color: var(--muted); margin-top: 3px; letter-spacing: 0.3px; }
+  .pg-chev { color: var(--muted); font-size: 13px; transition: transform 0.2s; flex-shrink: 0; margin-left: auto; }
+  .pg-group.open > .pg-group-head .pg-chev { transform: rotate(90deg); color: var(--accent); }
+  .pg-group-body { display: none; border-top: 1px solid var(--border); }
+  .pg-group.open > .pg-group-body { display: block; }
+  .pg-ex { border-bottom: 1px solid var(--border); }
+  .pg-ex:last-child { border-bottom: none; }
+  .pg-ex-head { display: flex; align-items: center; gap: 10px; padding: 12px 18px; cursor: pointer; }
+  .pg-ex-head:active { background: var(--card-2); }
+  .pg-ex-name { font-size: 13px; font-weight: 600; }
+  .pg-ex-meta { font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .pg-ex-pr { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--accent); letter-spacing: 1px; line-height: 1; text-align: right; }
+  .pg-ex-pr.none { color: var(--border); }
+  .pg-ex.open > .pg-ex-head .pg-chev { transform: rotate(90deg); color: var(--accent); }
+  .pg-ex-body { display: none; padding: 2px 18px 16px; }
+  .pg-ex.open > .pg-ex-body { display: block; }
+  .pg-ses-head { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; margin: 12px 0 4px; }
+  .pg-ses { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px dashed rgba(255,255,255,0.05); font-size: 11px; }
+  .pg-ses:last-child { border-bottom: none; }
+  .pg-ses-date { color: var(--accent-dim); font-weight: 700; letter-spacing: 0.5px; flex-shrink: 0; }
+  .pg-ses-sets { color: var(--muted-2); text-align: right; }
+  .pg-stat-row { display: flex; gap: 8px; margin-top: 10px; }
+  .pg-stat { flex: 1; background: var(--surface); border-radius: 10px; padding: 8px 6px; text-align: center; }
+  .pg-stat-v { font-family: 'Bebas Neue', sans-serif; font-size: 17px; color: var(--accent); line-height: 1; letter-spacing: 0.5px; }
+  .pg-stat-l { font-size: 8px; color: var(--muted); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
 </style>
 </head>
 <body>
 
 <div class="toast" id="toast"></div>
 <div class="modal-overlay" id="modal"><div class="modal" id="modalContent"></div></div>
+<div class="fw-overlay" id="fwOverlay" onclick="closeFireworks()">
+  <canvas id="fwCanvas"></canvas>
+  <div class="fw-inner">
+    <div class="fw-text">LETS<br>FUCKING<br>GO!</div>
+    <div class="fw-sub" id="fwSub">Training compleet</div>
+    <div class="fw-tap">Tap om te sluiten</div>
+  </div>
+</div>
 
 <div class="header">
   <div class="header-row">
@@ -558,6 +636,10 @@ const exercisePools = {
       primary: ['hamstrings'], secondary: [],
       notes: 'Maeo 2021: beter dan liggende leg curl voor hamstring hypertrofie.',
       tips: ['Volledige ROM','Knijp 1 sec onderaan','2-3 sec eccentric'] },
+    { id: 'single-leg-seated-leg-curl', name: 'Seated Leg Curl (1 been)', sets: 3, reps: '10-12 p/b', rest: '90 sec',
+      primary: ['hamstrings'], secondary: [],
+      notes: 'Unilaterale variant — fixt links/rechts verschil en geeft per been meer focus.',
+      tips: ['Heup vast tegen de rugleuning','Volledige ROM, geen heup meebewegen','Knijp 1 sec onderaan','2-3 sec eccentric','Start met de arm/been van de week'] },
     { id: 'nordic-curl', name: 'Nordic Curl', sets: 3, reps: '5-8', rest: '2 min',
       primary: ['hamstrings'], secondary: ['glutes'],
       notes: 'Eccentric-focus — top voor hamstring kracht.',
@@ -860,7 +942,7 @@ const daySchemas = {
       { poolKey: 'rdl-pattern', defaultId: 'seated-leg-curl', overrideSets: 3, overrideReps: '10-12', overrideRest: '90 sec' },
       { poolKey: 'calf', defaultId: 'standing-calf-raise', overrideSets: 3 },
       { poolKey: 'vertical-pull', defaultId: 'pull-up' },
-      { poolKey: 'horizontal-push', defaultId: 'incline-db-press' },
+      { poolKey: 'horizontal-push', defaultId: 'incline-db-press', overrideSets: 4 },
       { poolKey: 'lateral-raise-pattern', defaultId: 'lateral-raise' },
       { poolKey: 'tricep', defaultId: 'tri-pushdown' },
       { poolKey: 'bicep', defaultId: 'ez-bar-curl' },
@@ -874,7 +956,7 @@ const daySchemas = {
       { poolKey: 'lunge-pattern', defaultId: 'walking-lunge' },
       { poolKey: 'calf', defaultId: 'seated-calf-raise', overrideSets: 3 },
       { poolKey: 'horizontal-pull', defaultId: 'chest-supported-row' },
-      { poolKey: 'horizontal-push', defaultId: 'machine-chest-press', overrideSets: 3, overrideReps: '10-12', overrideRest: '90 sec' },
+      { poolKey: 'horizontal-push', defaultId: 'machine-chest-press', overrideSets: 4, overrideReps: '10-12', overrideRest: '90 sec' },
       { poolKey: 'shoulder-press', defaultId: 'seated-db-shoulder-press', overrideSets: 3, overrideReps: '8-12', overrideRest: '90 sec' },
       { poolKey: 'lateral-raise-pattern', defaultId: 'cable-lateral-raise' },
       { poolKey: 'rear-delt', defaultId: 'face-pull' },
@@ -890,7 +972,7 @@ const daySchemas = {
       { poolKey: 'calf', defaultId: 'leg-press-calf-raise', overrideSets: 3 },
       { poolKey: 'vertical-pull', defaultId: 'lat-pulldown', overrideSets: 3, overrideReps: '10-12', overrideRest: '90 sec' },
       { poolKey: 'horizontal-pull', defaultId: 'seated-cable-row', overrideSets: 3, overrideReps: '10-12', overrideRest: '90 sec' },
-      { poolKey: 'chest-fly', defaultId: 'cable-fly' },
+      { poolKey: 'chest-fly', defaultId: 'cable-fly', overrideSets: 4 },
       { poolKey: 'lateral-raise-pattern', defaultId: 'machine-lateral-raise' },
       { poolKey: 'rear-delt', defaultId: 'rear-delt-fly' },
       { poolKey: 'tricep', defaultId: 'skull-crusher' },
@@ -1088,6 +1170,10 @@ if (!state.blockStart) state.blockStart = null; // ISO-datum van start huidig tr
 if (!state.profile) state.profile = { name: '' };
 if (!state.inbody) state.inbody = []; // [{date, weight, ssm, bf}]
 if (!state.nutrition) state.nutrition = null; // {tdee, target, protein, carbs, fat}
+if (!state.skips) state.skips = {};          // {iso: {slotIdx: true}} — oefening alleen die dag overslaan
+if (!state.celebrated) state.celebrated = {}; // {iso: true} — vuurwerk al getoond
+if (!state.lastExport) state.lastExport = null;   // ISO-datetime laatste backup
+if (!state.exportSnooze) state.exportSnooze = null; // ISO-datum tot wanneer herinnering uit
 
 function todayISO(){ return new Date().toISOString().split('T')[0]; }
 function isoForDate(d){ return d.toISOString().split('T')[0]; }
@@ -1136,6 +1222,10 @@ function recoverFromIDB(){
       profile: vault.profile || { name: '' },
       inbody: vault.inbody || [],
       nutrition: vault.nutrition || null,
+      skips: vault.skips || {},
+      celebrated: vault.celebrated || {},
+      lastExport: vault.lastExport || null,
+      exportSnooze: vault.exportSnooze || null,
       savedAt: vault.savedAt || null,
       selectedDate: todayISO()
     };
@@ -1164,15 +1254,220 @@ function getExerciseForSlot(iso, slotIdx){
   const exId = swappedId || slot.defaultId;
   const pool = exercisePools[slot.poolKey];
   const baseEx = pool.find(e=>e.id===exId) || pool.find(e=>e.id===slot.defaultId);
+  // Als je naar een unilaterale variant wisselt (p/b, p/a), dan wint de eigen
+  // rep-notatie van de oefening — anders zou "10-12 p/b" tot "10-12" verworden.
+  const ownReps = !!swappedId && /p\/[baz]/i.test(baseEx.reps || '');
   return {
     ...baseEx,
     sets: slot.overrideSets || baseEx.sets,
-    reps: slot.overrideReps || baseEx.reps,
+    reps: ownReps ? baseEx.reps : (slot.overrideReps || baseEx.reps),
     rest: slot.overrideRest || baseEx.rest,
     _poolKey: slot.poolKey,
     _slotIdx: slotIdx,
     _isSwapped: !!swappedId && swappedId !== slot.defaultId
   };
+}
+
+// ============================================================
+// SKIP / VOORTGANG HELPERS
+// ============================================================
+function isSkipped(iso, idx){ return !!(state.skips[iso] && state.skips[iso][idx]); }
+
+// Alle slot-indexen van een dag die vandaag daadwerkelijk meetellen
+function activeSlotIdxs(iso){
+  const num = getTrainingDayNumForDate(iso);
+  if(!num) return [];
+  return daySchemas[num].slots.map((_,i)=>i).filter(i=>!isSkipped(iso,i));
+}
+function countChecked(iso){
+  const ch = state.checks[iso] || {};
+  return activeSlotIdxs(iso).filter(i=>ch[i]).length;
+}
+function isDayComplete(iso){
+  const act = activeSlotIdxs(iso);
+  if(!act.length) return false;
+  const ch = state.checks[iso] || {};
+  return act.every(i=>ch[i]);
+}
+
+function skipExercise(slotIdx){
+  const iso = state.selectedDate;
+  if(!state.skips[iso]) state.skips[iso] = {};
+  state.skips[iso][slotIdx] = true;
+  if(state.checks[iso]) delete state.checks[iso][slotIdx];
+  openLogCtx = null;
+  saveState();
+  document.getElementById('modal').classList.remove('open');
+  renderDay(); renderWeekNav();
+  showToast('Oefening overgeslagen vandaag');
+  if('vibrate' in navigator) navigator.vibrate(30);
+}
+function unskipExercise(slotIdx){
+  const iso = state.selectedDate;
+  if(state.skips[iso]) delete state.skips[iso][slotIdx];
+  saveState();
+  renderDay(); renderWeekNav();
+  showToast('Oefening terug in het schema');
+}
+
+// ============================================================
+// ARM/BEEN VAN DE WEEK — wisselt elke week
+// 1 januari 2024 was een maandag: vaste ankerpunt voor de weekteller.
+// ============================================================
+const ARM_EPOCH = Date.UTC(2024, 0, 1);
+function weekIndexFor(iso){
+  const d = new Date((iso || todayISO()) + 'T00:00:00Z');
+  const dow = d.getUTCDay();
+  const monday = new Date(d);
+  monday.setUTCDate(d.getUTCDate() + (dow === 0 ? -6 : 1 - dow));
+  return Math.floor((monday.getTime() - ARM_EPOCH) / (7 * 86400000));
+}
+function armSideForWeek(iso){ return weekIndexFor(iso) % 2 === 0 ? 'LINKS' : 'RECHTS'; }
+function isUnilateral(ex){
+  if(!ex) return false;
+  return /p\/[baz]/i.test(ex.reps || '') || /single|one-arm|split squat|lunge|step-up|b-stance|lean-away|suitcase/i.test(ex.name || '');
+}
+function armBannerHTML(iso){
+  const side = armSideForWeek(iso);
+  const other = side === 'LINKS' ? 'rechts' : 'links';
+  return `
+    <div class="arm-banner">
+      <div class="arm-banner-side">${side}</div>
+      <div>
+        <div class="arm-banner-lbl">Deze week beginnen met</div>
+        <div class="arm-banner-sub">Alle single arm / single leg oefeningen starten ${side.toLowerCase()}, daarna ${other}. Volgende week omgekeerd.</div>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================
+// BACKUP-HERINNERING — waarschuwt na 7 dagen zonder export
+// ============================================================
+function daysSinceISO(iso){
+  if(!iso) return null;
+  const t = new Date(iso).getTime();
+  if(isNaN(t)) return null;
+  return Math.floor((Date.now() - t) / 86400000);
+}
+function backupReminderHTML(){
+  if(Object.keys(state.logs || {}).length === 0) return '';
+  if(state.exportSnooze && todayISO() < state.exportSnooze) return '';
+  const d = daysSinceISO(state.lastExport);
+  if(d !== null && d < 7) return '';
+  const txt = (d === null)
+    ? 'Je hebt je resultaten <b>nog nooit</b> geexporteerd.'
+    : `Je laatste backup is <b>${d} dagen</b> geleden.`;
+  return `
+    <div class="backup-warn">
+      <div class="backup-warn-top">
+        <span class="backup-warn-title">&#9888; Backup maken</span>
+        <button class="backup-x" onclick="snoozeBackup()">&#10005;</button>
+      </div>
+      <div class="backup-warn-text">${txt} Sla het JSON-bestand op in Files of iCloud Drive — dan raak je bij een Safari-opschoning niks kwijt.</div>
+      <button class="backup-warn-btn" onclick="exportData()">&#128229; Exporteer nu</button>
+    </div>
+  `;
+}
+function snoozeBackup(){
+  const d = new Date(); d.setDate(d.getDate() + 3);
+  state.exportSnooze = isoForDate(d);
+  saveState();
+  renderDay();
+}
+
+// ============================================================
+// VUURWERK
+// ============================================================
+let fwRaf = null;
+function maybeCelebrate(){
+  const iso = state.selectedDate;
+  if(!isDayComplete(iso)){
+    if(state.celebrated[iso]){ delete state.celebrated[iso]; saveState(); }
+    return false;
+  }
+  if(state.celebrated[iso]) return false;
+  state.celebrated[iso] = true;
+  saveState();
+  launchFireworks();
+  return true;
+}
+function launchFireworks(){
+  const ov = document.getElementById('fwOverlay');
+  const cv = document.getElementById('fwCanvas');
+  if(!ov || !cv) return;
+  const iso = state.selectedDate;
+  const n = activeSlotIdxs(iso).length;
+  const sub = document.getElementById('fwSub');
+  if(sub) sub.textContent = `${n} oefeningen afgevinkt`;
+  ov.classList.add('show');
+  if('vibrate' in navigator) navigator.vibrate([40,60,40,60,120]);
+
+  const w = ov.clientWidth || window.innerWidth;
+  const h = ov.clientHeight || window.innerHeight;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = w * dpr; cv.height = h * dpr;
+  cv.style.width = w + 'px'; cv.style.height = h + 'px';
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const colors = ['#c8f135','#ff9d3a','#4caf50','#5ac8fa','#ff5252','#ffffff'];
+  let parts = [];
+  function burst(x, y){
+    const c = colors[Math.floor(Math.random() * colors.length)];
+    const count = 44 + Math.floor(Math.random() * 30);
+    for(let i = 0; i < count; i++){
+      const a = Math.random() * Math.PI * 2;
+      const sp = 1.4 + Math.random() * 4.4;
+      parts.push({
+        x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+        life: 1, decay: 0.008 + Math.random() * 0.013,
+        color: Math.random() < 0.16 ? '#ffffff' : c,
+        size: 1.3 + Math.random() * 1.9
+      });
+    }
+  }
+  burst(w * 0.5, h * 0.34);
+  const started = performance.now();
+  let lastBurst = started;
+
+  function frame(t){
+    const elapsed = t - started;
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = 'rgba(0,0,0,0.16)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'lighter';
+    if(elapsed < 5600 && t - lastBurst > 340){
+      lastBurst = t;
+      burst(w * (0.13 + Math.random() * 0.74), h * (0.10 + Math.random() * 0.48));
+    }
+    for(const pt of parts){
+      pt.x += pt.vx; pt.y += pt.vy;
+      pt.vy += 0.045; pt.vx *= 0.988; pt.vy *= 0.988;
+      pt.life -= pt.decay;
+      if(pt.life > 0){
+        ctx.globalAlpha = pt.life;
+        ctx.fillStyle = pt.color;
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.size, 0, 6.2832);
+        ctx.fill();
+      }
+    }
+    parts = parts.filter(pt => pt.life > 0 && pt.y < h + 60);
+    ctx.globalAlpha = 1;
+    if(elapsed < 7600) fwRaf = requestAnimationFrame(frame);
+    else closeFireworks();
+  }
+  cancelAnimationFrame(fwRaf);
+  fwRaf = requestAnimationFrame(frame);
+}
+function closeFireworks(){
+  if(fwRaf) cancelAnimationFrame(fwRaf);
+  fwRaf = null;
+  const ov = document.getElementById('fwOverlay');
+  const cv = document.getElementById('fwCanvas');
+  if(cv){ const c = cv.getContext('2d'); c.setTransform(1,0,0,1,0,0); c.clearRect(0,0,cv.width,cv.height); }
+  if(ov) ov.classList.remove('show');
 }
 
 function getLastSession(exId){
@@ -1216,10 +1511,9 @@ function renderWeekNav(){
     btn.classList.add(isTraining ? 'training-day' : 'rest-day');
     if(iso === state.selectedDate) btn.classList.add('active');
     if(isTraining){
-      const ch = state.checks[iso] || {};
-      const total = daySchemas[num].slots.length;
-      const done = Object.values(ch).filter(v=>v).length;
-      if(done===total && total>0) btn.classList.add('done');
+      const total = activeSlotIdxs(iso).length;
+      const done = countChecked(iso);
+      if(total>0 && done===total) btn.classList.add('done');
     }
     btn.innerHTML = `
       <div class="day-name">${dayNames[d.getDay()]}</div>
@@ -1316,7 +1610,7 @@ function renderDay(){
   const dateLabel = `${dowFull[d.getDay()].toUpperCase()} ${d.getDate()}/${d.getMonth()+1}`;
 
   if(!num){
-    container.innerHTML = `
+    container.innerHTML = backupReminderHTML() + `
       <div class="rest-card">
         <div class="rest-eyebrow">${dateLabel} · RECOVERY</div>
         <div class="rest-title">RESTDAG</div>
@@ -1331,7 +1625,7 @@ function renderDay(){
   const day = daySchemas[num];
   if(!state.checks[iso]) state.checks[iso] = {};
 
-  let html = `
+  let html = backupReminderHTML() + armBannerHTML(iso) + `
     <div class="training-card">
       <div class="card-header">
         <div class="card-eyebrow-row">
@@ -1348,13 +1642,27 @@ function renderDay(){
       <div>
   `;
 
+  const armSide = armSideForWeek(iso).toLowerCase();
+  let skippedRows = '';
+  let shown = 0;
   day.slots.forEach((slot, idx)=>{
     const ex = getExerciseForSlot(iso, idx);
+    if(isSkipped(iso, idx)){
+      skippedRows += `
+        <div class="skip-row">
+          <div class="skip-row-name">${String(idx+1).padStart(2,'0')} · ${ex.name}</div>
+          <button class="skip-undo" onclick="unskipExercise(${idx})">↺ Terug</button>
+        </div>
+      `;
+      return;
+    }
+    shown++;
     const checked = state.checks[iso][idx];
     const mini = buildExerciseMiniSVG(ex.primary, ex.secondary);
     const last = formatLastSummary(getLastSession(ex.id));
+    const uni = isUnilateral(ex) ? `<span class="ex-uni-tag">start ${armSide}</span>` : '';
     html += `
-      <div class="exercise-item ${checked?'checked':''} ${ex._isSwapped?'swapped':''}">
+      <div class="exercise-item ${checked?'checked':''} ${ex._isSwapped?'swapped':''}" id="ex-item-${idx}">
         <div class="ex-num">${String(idx+1).padStart(2,'0')}</div>
         <div class="ex-anatomy" onclick="openModal(${idx})">${mini}</div>
         <div class="ex-info" onclick="openModal(${idx})">
@@ -1363,6 +1671,7 @@ function renderDay(){
             <span class="ex-muscle-tag">${labelForPool(slot.poolKey)}</span>
             <span><b>${ex.sets}</b>×${ex.reps}</span>
             <span style="color:var(--muted)">· ${ex.rest}</span>
+            ${uni}
           </div>
           ${last?`<div class="ex-last">Laatst: ${last}</div>`:''}
         </div>
@@ -1370,13 +1679,26 @@ function renderDay(){
       </div>
     `;
   });
+  if(shown === 0){
+    html += `<div style="padding:26px 20px;text-align:center;font-size:13px;color:var(--muted)">Alle oefeningen van vandaag overgeslagen.</div>`;
+  }
   html += `</div></div>`;
+
+  if(skippedRows){
+    html += `
+      <div class="skipped-card">
+        <div class="skipped-head">Overgeslagen vandaag</div>
+        ${skippedRows}
+      </div>
+    `;
+  }
 
   html += `
     <div class="tips-card">
       <div class="tips-title">Vandaag's Focus</div>
       <div class="tip-row"><div class="tip-dot"></div><div class="tip-text"><b>Algemene warm-up (15 min):</b> 5 min cardio + dynamic stretching + activatie (glute bridges, band pull-aparts).</div></div>
       <div class="tip-row"><div class="tip-dot"></div><div class="tip-text"><b>Tap op een oefening</b> om de opwarm-opbouw per oefening te zien — automatisch berekend op basis van je werkgewicht.</div></div>
+      <div class="tip-row"><div class="tip-dot"></div><div class="tip-text"><b>✕ Sla over:</b> tap een oefening en kies "Sla over" om 'm alleen vandaag uit het schema te halen — bijvoorbeeld quad-werk bij kniepijn.</div></div>
       <div class="tip-row"><div class="tip-dot"></div><div class="tip-text"><b>↔ Verzet dag:</b> Schuif deze training naar een andere dag in de week.</div></div>
       <div class="tip-row"><div class="tip-dot"></div><div class="tip-text"><b>Progressive overload:</b> 1-2.5kg meer of 1-2 reps extra t.o.v. vorige sessie.</div></div>
     </div>
@@ -1393,25 +1715,44 @@ function toggleCheck(idx, event){
   state.checks[iso][idx] = !state.checks[iso][idx];
   saveState();
   renderDay(); renderWeekNav();
-  if(state.checks[iso][idx]){
-    showToast('Goed bezig 💪');
-    if('vibrate' in navigator) navigator.vibrate(30);
-  }
-  const num = getTrainingDayNumForDate(iso);
-  if(num){
-    const all = daySchemas[num].slots.every((_,i)=>state.checks[iso][i]);
-    if(all) setTimeout(()=>showToast('🔥 Training klaar! Eet die proteïne.'),200);
-  }
+  const nowChecked = state.checks[iso][idx];
+  if(nowChecked && 'vibrate' in navigator) navigator.vibrate(30);
+  if(!maybeCelebrate() && nowChecked) showToast('Goed bezig 💪');
+}
+
+function markChecked(slotIdx){
+  const iso = state.selectedDate;
+  if(slotIdx === undefined || slotIdx === null) return;
+  if(!state.checks[iso]) state.checks[iso] = {};
+  state.checks[iso][slotIdx] = true;
+}
+
+// Scroll na opslaan naar de eerstvolgende oefening die nog open staat
+function scrollToNextExercise(fromIdx){
+  const iso = state.selectedDate;
+  const act = activeSlotIdxs(iso);
+  const ch = state.checks[iso] || {};
+  let target = act.find(i => i > fromIdx && !ch[i]);
+  if(target === undefined) target = act.find(i => !ch[i]);
+  if(target === undefined) target = act.find(i => i > fromIdx);
+  if(target === undefined) return;
+  setTimeout(()=>{
+    const el = document.getElementById('ex-item-' + target);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+  }, 280);
 }
 
 // ============================================================
 // MODAL — exercise detail + swap + log
 // ============================================================
+let openLogCtx = null; // {exId, numSets, slotIdx} — voor automatisch opslaan bij sluiten
+
 function openModal(slotIdx){
   const iso = state.selectedDate;
   const ex = getExerciseForSlot(iso, slotIdx);
   if(!ex) return;
   const content = document.getElementById('modalContent');
+  openLogCtx = { exId: ex.id, numSets: ex.sets, slotIdx: slotIdx };
 
   const muscleChips =
     ex.primary.map(m=>`<div class="muscle-chip primary">${muscleNames[m]||m}</div>`).join('') +
@@ -1507,7 +1848,11 @@ function openModal(slotIdx){
     <div class="modal-handle-area" id="modalHandleArea"><div class="modal-handle"></div></div>
     <div class="modal-eyebrow">OEFENING ${String(slotIdx+1).padStart(2,'0')} · ${labelForPool(ex._poolKey).toUpperCase()}</div>
     <div class="modal-title">${ex.name}</div>
-    <button class="swap-btn" onclick="openSwapMenu(${slotIdx})">↻ Wissel deze oefening</button>
+    ${isUnilateral(ex) ? `<div class="arm-banner" style="margin-bottom:12px"><div class="arm-banner-side">${armSideForWeek(iso)}</div><div><div class="arm-banner-lbl">Deze week starten met</div><div class="arm-banner-sub">Begin deze oefening met ${armSideForWeek(iso).toLowerCase()}.</div></div></div>` : ''}
+    <div class="modal-actions">
+      <button class="swap-btn" onclick="openSwapMenu(${slotIdx})">↻ Wissel</button>
+      <button class="skip-btn" onclick="skipExercise(${slotIdx})">✕ Sla over</button>
+    </div>
     <a class="video-btn" href="${youtubeSearchURL(ex.name)}" target="_blank" rel="noopener noreferrer">
       <div class="video-btn-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       <div class="video-btn-text">
@@ -1530,7 +1875,10 @@ function openModal(slotIdx){
     <div class="log-section">
       <div class="modal-section-title">Log je sets</div>
       ${lastHTML}${setInputs}
-      <button class="save-log-btn" onclick="saveLog('${ex.id}', ${ex.sets})">Opslaan</button>
+      <button class="save-log-btn" onclick="saveLog('${ex.id}', ${ex.sets}, ${slotIdx})">Opslaan</button>
+      <div style="font-size:10px;color:var(--muted);line-height:1.5;text-align:center">
+        Alle reps ingevuld? Dan wordt de oefening automatisch afgevinkt. Sluit je tussendoor af, dan bewaart de app wat je al hebt ingevuld.
+      </div>
     </div>
     <div class="modal-section"><div class="modal-section-title">Uitleg</div><div class="modal-text">${ex.notes}</div></div>
     <div class="modal-section"><div class="modal-section-title">Tips</div>
@@ -1542,6 +1890,8 @@ function openModal(slotIdx){
 }
 
 function openSwapMenu(slotIdx){
+  autoSaveOpenLog();
+  openLogCtx = null;
   const iso = state.selectedDate;
   const num = getTrainingDayNumForDate(iso);
   const slot = daySchemas[num].slots[slotIdx];
@@ -1590,32 +1940,79 @@ function applySwap(slotIdx, newId){
   openModal(slotIdx);
 }
 
-function saveLog(exId, numSets){
+// Leest de ingevulde velden uit het modal. Geeft null terug als het formulier
+// er niet (meer) staat, of als er nog niets is ingevuld.
+function readSetInputs(numSets){
+  if(!document.getElementById('w-0')) return null;
   const sets = [];
-  let hasAny = false;
+  let hasAny = false, allReps = true;
   for(let i=0;i<numSets;i++){
-    const w = parseFloat(document.getElementById(`w-${i}`).value) || 0;
-    const r = parseInt(document.getElementById(`r-${i}`).value) || 0;
-    sets.push({w,r});
-    if(w>0 || r>0) hasAny = true;
+    const we = document.getElementById(`w-${i}`);
+    const re = document.getElementById(`r-${i}`);
+    if(!we || !re) return null;
+    const w = parseFloat(we.value) || 0;
+    const r = parseInt(re.value) || 0;
+    sets.push({w, r});
+    if(w > 0 || r > 0) hasAny = true;
+    if(!(r > 0)) allReps = false;
   }
-  if(!hasAny){ showToast('Vul minstens één set in'); return; }
+  return { sets, hasAny, allReps };
+}
+
+function writeLog(exId, sets){
   const logDate = state.selectedDate;
   if(!state.logs[exId]) state.logs[exId] = [];
-  const ex = state.logs[exId].findIndex(s=>s.date===logDate);
-  if(ex >= 0) state.logs[exId][ex] = {date: logDate, sets};
+  const i = state.logs[exId].findIndex(s=>s.date===logDate);
+  const changed = !(i >= 0 && JSON.stringify(state.logs[exId][i].sets) === JSON.stringify(sets));
+  if(i >= 0) state.logs[exId][i] = {date: logDate, sets};
   else {
     state.logs[exId].push({date: logDate, sets});
     state.logs[exId].sort((a,b)=>a.date.localeCompare(b.date));
   }
-  saveState();
-  showToast('💾 Sets opgeslagen');
-  if('vibrate' in navigator) navigator.vibrate(40);
-  renderDay();
-  closeModal();
+  return changed;
 }
 
-function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+function saveLog(exId, numSets, slotIdx){
+  const read = readSetInputs(numSets);
+  if(!read || !read.hasAny){ showToast('Vul minstens één set in'); return; }
+  writeLog(exId, read.sets);
+  let didCheck = false;
+  if(read.allReps){ markChecked(slotIdx); didCheck = true; }
+  saveState();
+  openLogCtx = null;
+  document.getElementById('modal').classList.remove('open');
+  if('vibrate' in navigator) navigator.vibrate(40);
+  renderDay(); renderWeekNav();
+  showToast(didCheck ? '✓ Opgeslagen & afgevinkt' : '💾 Sets opgeslagen');
+  if(!maybeCelebrate()) scrollToNextExercise(slotIdx === undefined ? -1 : slotIdx);
+}
+
+// Automatisch opslaan zodra je het modal verlaat zonder op Opslaan te drukken
+function autoSaveOpenLog(){
+  if(!openLogCtx) return false;
+  const { exId, numSets, slotIdx } = openLogCtx;
+  const read = readSetInputs(numSets);
+  if(!read || !read.hasAny) return false;
+  const changed = writeLog(exId, read.sets);
+  let didCheck = false;
+  if(read.allReps && !(state.checks[state.selectedDate] || {})[slotIdx]){
+    markChecked(slotIdx);
+    didCheck = true;
+  }
+  saveState();
+  return changed || didCheck;
+}
+
+function closeModal(){
+  const changed = autoSaveOpenLog();
+  openLogCtx = null;
+  document.getElementById('modal').classList.remove('open');
+  if(changed){
+    renderDay(); renderWeekNav();
+    showToast('💾 Automatisch opgeslagen');
+    maybeCelebrate();
+  }
+}
 
 function setWarmupTop(exId, slotIdx){
   const inp = document.getElementById('warmup-top-input');
@@ -1643,6 +2040,7 @@ document.getElementById('modal').addEventListener('click', e=>{
 // MOVE-DAY MENU
 // ============================================================
 function openMoveMenu(){
+  openLogCtx = null;
   const iso = state.selectedDate;
   const curNum = getTrainingDayNumForDate(iso);
   const content = document.getElementById('modalContent');
@@ -1740,10 +2138,10 @@ function updateAnatomyBar(){
   const done = new Set();
   let checked = 0, total = 0;
   if(num){
-    const slots = daySchemas[num].slots;
-    total = slots.length;
+    const act = activeSlotIdxs(iso);
+    total = act.length;
     const ch = state.checks[iso] || {};
-    slots.forEach((slot, i)=>{
+    act.forEach(i=>{
       if(ch[i]){
         checked++;
         const ex = getExerciseForSlot(iso, i);
@@ -1776,9 +2174,8 @@ function updateProgress(){
     const iso = isoForDate(d);
     const num = getTrainingDayNumForDate(iso);
     if(num){
-      total += daySchemas[num].slots.length;
-      const ch = state.checks[iso] || {};
-      done += Object.values(ch).filter(v=>v).length;
+      total += activeSlotIdxs(iso).length;
+      done += countChecked(iso);
     }
   }
   const pct = total > 0 ? Math.round((done/total)*100) : 0;
@@ -1859,52 +2256,167 @@ function buildExerciseChart(exId){
   `;
 }
 
+// ============================================================
+// PROGRESSIE — gegroepeerd per spiergroep, per oefening uitklapbaar
+// ============================================================
+const progressGroups = [
+  { label:'Borst',       pools:['horizontal-push','chest-fly'] },
+  { label:'Rug',         pools:['vertical-pull','horizontal-pull'] },
+  { label:'Schouders',   pools:['shoulder-press','lateral-raise-pattern','rear-delt'] },
+  { label:'Biceps',      pools:['bicep'] },
+  { label:'Triceps',     pools:['tricep'] },
+  { label:'Quads',       pools:['squat-pattern','leg-press-pattern','lunge-pattern'] },
+  { label:'Hamstrings',  pools:['rdl-pattern'] },
+  { label:'Glutes',      pools:['hip-thrust-pattern'] },
+  { label:'Kuiten',      pools:['calf'] },
+  { label:'Core',        pools:['core-anti-extension','core-anti-rotation'] }
+];
+const pgOpenGroups = new Set();
+const pgOpenEx = new Set();
+
+function poolGroupLabel(poolKey, ex){
+  // Glute-varianten binnen de lunge-pool (hip thrust) horen bij Glutes, niet bij Quads
+  if(ex && ex.primary && ex.primary.includes('glutes')
+     && !ex.primary.includes('quads') && !ex.primary.includes('hamstrings')) return 'Glutes';
+  const g = progressGroups.find(g=>g.pools.includes(poolKey));
+  return g ? g.label : 'Overig';
+}
+function togglePgGroup(el, label){
+  const box = el.parentElement;
+  box.classList.toggle('open');
+  if(box.classList.contains('open')) pgOpenGroups.add(label);
+  else pgOpenGroups.delete(label);
+}
+function togglePgEx(el, id){
+  const box = el.parentElement;
+  box.classList.toggle('open');
+  if(box.classList.contains('open')) pgOpenEx.add(id);
+  else pgOpenEx.delete(id);
+}
+function sessionSetsText(ses){
+  const v = (ses.sets || []).filter(x=>x.w>0 || x.r>0);
+  if(!v.length) return '—';
+  return v.map(x=>`${x.w||0}kg×${x.r||0}`).join(' · ');
+}
+function sessionVolume(ses){
+  return (ses.sets || []).reduce((n,x)=>n + (x.w||0)*(x.r||0), 0);
+}
+
+function exerciseDetailHTML(ex){
+  const all = (state.logs[ex.id] || []).slice().sort((a,b)=>a.date.localeCompare(b.date));
+  const best = getBestSet(ex.id);
+  const last = all.length ? all[all.length-1] : null;
+  const lastSum = formatLastSummary(last);
+
+  let trendHTML = '';
+  if(all.length >= 2){
+    const topOf = ses=>{
+      const v = ses.sets.filter(x=>x.w>0);
+      return v.length ? Math.max(...v.map(x=>x.w)) : 0;
+    };
+    const lT = topOf(all[all.length-1]);
+    const pT = topOf(all[all.length-2]);
+    if(lT>0 && pT>0){
+      const diff = lT - pT;
+      const cls = diff>0 ? 'trend-up' : diff<0 ? 'trend-down' : '';
+      const arr = diff>0 ? '↑' : diff<0 ? '↓' : '→';
+      const sgn = diff>0 ? '+' : '';
+      trendHTML = `<span class="trend-item ${cls}"><b>${arr} ${sgn}${diff.toFixed(1)}kg</b> vs vorige</span>`;
+    }
+  }
+
+  const recent = all.slice(-6).reverse();
+  const sesRows = recent.map(ses=>`
+    <div class="pg-ses">
+      <span class="pg-ses-date">${formatDateShort(ses.date)}</span>
+      <span class="pg-ses-sets">${sessionSetsText(ses)}</span>
+    </div>
+  `).join('');
+
+  const volLast = last ? Math.round(sessionVolume(last)) : 0;
+  const statRow = `
+    <div class="pg-stat-row">
+      <div class="pg-stat"><div class="pg-stat-v">${all.length}</div><div class="pg-stat-l">Sessies</div></div>
+      <div class="pg-stat"><div class="pg-stat-v">${best ? best.w+'kg' : '—'}</div><div class="pg-stat-l">PR${best ? ' ×'+best.r : ''}</div></div>
+      <div class="pg-stat"><div class="pg-stat-v">${volLast ? volLast.toLocaleString('nl-NL') : '—'}</div><div class="pg-stat-l">Volume laatst</div></div>
+    </div>
+  `;
+
+  return `
+    ${buildExerciseChart(ex.id)}
+    <div class="chart-trend">
+      ${lastSum?`<span class="trend-item">Laatst: <b>${lastSum}</b></span>`:''}
+      ${trendHTML}
+    </div>
+    ${all.length ? statRow : ''}
+    ${sesRows ? `<div class="pg-ses-head">Laatste sessies</div>${sesRows}` : ''}
+  `;
+}
+
 function renderProgressionList(){
   const c = document.getElementById('progressionList');
+  if(!c) return;
   const exs = getAllTrackedExercises();
-  let html = '';
+
+  const byGroup = new Map();
   exs.forEach(ex=>{
-    const sess = state.logs[ex.id] || [];
-    const best = getBestSet(ex.id);
-    const last = getLastSession(ex.id);
-    const lastSum = formatLastSummary(last);
-    let trendHTML = '';
-    if(sess.length >= 2){
-      const topOf = s=>{
-        const v = s.sets.filter(x=>x.w>0);
-        return v.length ? Math.max(...v.map(x=>x.w)) : 0;
-      };
-      const lT = topOf(sess[sess.length-1]);
-      const pT = topOf(sess[sess.length-2]);
-      if(lT>0 && pT>0){
-        const diff = lT - pT;
-        const cls = diff>0 ? 'trend-up' : diff<0 ? 'trend-down' : '';
-        const arr = diff>0 ? '↑' : diff<0 ? '↓' : '→';
-        const sgn = diff>0 ? '+' : '';
-        trendHTML = `<span class="trend-item ${cls}"><b>${arr} ${sgn}${diff.toFixed(1)}kg</b> vs vorige</span>`;
-      }
-    }
+    const lbl = poolGroupLabel(ex._poolKey, ex);
+    if(!byGroup.has(lbl)) byGroup.set(lbl, []);
+    byGroup.get(lbl).push(ex);
+  });
+
+  let html = '';
+  progressGroups.forEach(g=>{
+    const list = byGroup.get(g.label);
+    if(!list || !list.length) return;
+    list.sort((a,b)=>{
+      const la = (state.logs[a.id]||[]).length;
+      const lb = (state.logs[b.id]||[]).length;
+      if(la !== lb) return lb - la;
+      return a.name.localeCompare(b.name);
+    });
+
+    const totalSess = list.reduce((n,ex)=>n + (state.logs[ex.id]||[]).length, 0);
+    const loggedCount = list.filter(ex=>(state.logs[ex.id]||[]).length).length;
+    const meta = totalSess
+      ? `${loggedCount} oefening${loggedCount===1?'':'en'} gelogd · ${totalSess} sessie${totalSess===1?'':'s'}`
+      : `${list.length} oefening${list.length===1?'':'en'} · nog geen data`;
+
+    const rows = list.map(ex=>{
+      const sess = state.logs[ex.id] || [];
+      const best = getBestSet(ex.id);
+      const openEx = pgOpenEx.has(ex.id) ? ' open' : '';
+      return `
+        <div class="pg-ex${openEx}">
+          <div class="pg-ex-head" onclick="togglePgEx(this, '${ex.id}')">
+            <div style="flex:1;min-width:0">
+              <div class="pg-ex-name">${ex.name}</div>
+              <div class="pg-ex-meta">${sess.length ? sess.length + ' sessie' + (sess.length===1?'':'s') : 'Nog geen data'}</div>
+            </div>
+            <div class="pg-ex-pr${best?'':' none'}">${best ? best.w+'kg' : '—'}</div>
+            <div class="pg-chev" style="margin-left:0">›</div>
+          </div>
+          <div class="pg-ex-body">${exerciseDetailHTML(ex)}</div>
+        </div>
+      `;
+    }).join('');
+
+    const openG = pgOpenGroups.has(g.label) ? ' open' : '';
     html += `
-      <div class="ex-history-card">
-        <div class="ex-history-head">
+      <div class="pg-group${openG}">
+        <div class="pg-group-head" onclick="togglePgGroup(this, '${g.label}')">
           <div>
-            <div class="ex-history-name">${ex.name}</div>
-            <div class="ex-history-meta">${labelForPool(ex._poolKey)} · ${sess.length} sessie${sess.length===1?'':'s'}</div>
+            <div class="pg-group-title">${g.label}</div>
+            <div class="pg-group-meta">${meta}</div>
           </div>
-          <div style="text-align:right">
-            <div class="ex-history-best">${best?best.w+'kg':'—'}</div>
-            <div class="ex-history-best-lbl">${best?'PR ('+best.r+' reps)':'Geen data'}</div>
-          </div>
+          <div class="pg-chev">›</div>
         </div>
-        ${buildExerciseChart(ex.id)}
-        <div class="chart-trend">
-          ${lastSum?`<span class="trend-item">Laatst: <b>${lastSum}</b></span>`:''}
-          ${trendHTML}
-        </div>
+        <div class="pg-group-body">${rows}</div>
       </div>
     `;
   });
-  c.innerHTML = html;
+
+  c.innerHTML = html || `<div class="chart-empty">Nog geen oefeningen om te tonen.</div>`;
 }
 
 // ============================================================
@@ -2536,6 +3048,8 @@ function resetWeek(){
     delete state.checks[iso];
     delete state.dayAssign[iso];
     delete state.swaps[iso];
+    delete state.skips[iso];
+    delete state.celebrated[iso];
   }
   saveState();
   renderWeekNav(); renderDay();
@@ -2639,7 +3153,7 @@ function exportData(){
   try {
     const exportObj = {
       app: 'fullbody-training',
-      version: 20,
+      version: 22,
       exportedAt: new Date().toISOString(),
       data: state
     };
@@ -2657,6 +3171,10 @@ function exportData(){
     document.body.removeChild(a);
     setTimeout(()=>URL.revokeObjectURL(url), 1000);
 
+    state.lastExport = new Date().toISOString();
+    state.exportSnooze = null;
+    saveState();
+    renderDay();
     showToast('📥 Backup gedownload');
     if('vibrate' in navigator) navigator.vibrate(40);
   } catch(e){
@@ -2704,6 +3222,10 @@ function importData(event){
         profile: incoming.profile || { name: '' },
         inbody: incoming.inbody || [],
         nutrition: incoming.nutrition || null,
+        skips: incoming.skips || {},
+        celebrated: incoming.celebrated || {},
+        lastExport: incoming.lastExport || null,
+        exportSnooze: incoming.exportSnooze || null,
         selectedDate: todayISO()
       };
       saveState();
